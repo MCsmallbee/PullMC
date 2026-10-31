@@ -1,10 +1,8 @@
 __pycache__/
 .pytest_cache/
 
-# 架构/设计文档：仅本地协作，不提交、不推送到公开仓库
-/docs/superpowers/specs/2026-10-29-pullmc-design.md
-/docs/superpowers/plans/2026-10-31-pullmc-implementation.md
-/docs/superpowers/specs/2026-10-31-pullmc-ui-flow.md
+# Agent 文档与规则：仅本地协作，不提交、不推送到公开仓库
+/.agent/
 
 *.py[cod]
 *.pyc
