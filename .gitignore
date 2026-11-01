@@ -1,8 +1,12 @@
 __pycache__/
 .pytest_cache/
+pytest-cache-files-*/
 
 # Agent 文档与规则：仅本地协作，不提交、不推送到公开仓库
 /.agent/
+
+# 本地截图、临时验证脚本与测试数据
+/.tmp/
 
 *.py[cod]
 *.pyc
