@@ -33,3 +33,13 @@ Copyright (c) 2026 MCsmallbee
 This project uses the MIT License. See the [LICENSE](LICENSE) file for details.
 
 In short: you are free to use, copy, modify, and distribute the code of this project, provided that you retain the copyright notice, and the author assumes no liability.
+
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=mcsmallbee%2Fpullmc&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mcsmallbee/pullmc&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mcsmallbee/pullmc&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mcsmallbee/pullmc&type=date&legend=bottom-right" />
+ </picture>
+</a>
