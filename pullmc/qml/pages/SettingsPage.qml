@@ -75,7 +75,7 @@ FluentPage {
                 title: appInfo.name
                 description: I18n.t("about.summary", "PullMC 是一个开源的 Minecraft Java 版下载与部署工具。")
                 icon.source: Qt.resolvedUrl("../../res/logo.svg")
-                icon.size: 22
+                icon.size: 26
                 contentFrame.color: Theme.currentTheme.colors.cardSecondaryColor
 
                 content: Text {

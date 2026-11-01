@@ -20,6 +20,17 @@
 >
 > **Stay tuned!**
 
+## 🗺️ Todo
+
+- [x] PySide6 + QML/RinUI desktop shell and first-run onboarding
+- [x] Settings, About, localization, and version naming
+- [ ] Minecraft version metadata and library
+- [ ] Game file download, verification, and deployment
+- [ ] Loader and modpack support
+- [ ] Download task queue and progress
+- [ ] Download source, mirror, and proxy settings
+- [ ] Automated Windows builds and releases
+
 ## ⚠️ Disclaimer
 
 PullMC is an open-source Minecraft: Java Edition download and deployment tool. It only fetches version metadata, downloads game files, and verifies local files; it does not provide game accounts, servers, or multiplayer services.

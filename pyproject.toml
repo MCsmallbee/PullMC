@@ -39,6 +39,8 @@ pullmc = [
     "qml/**/qmldir",
     "i18n_data/*.json",
     "res/*.svg",
+    "res/*.ico",
+    "res/*.png",
 ]
 
 [tool.pytest.ini_options]
