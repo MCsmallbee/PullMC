@@ -1,20 +1,23 @@
 <div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/logo_dark.svg">
+    <img alt="PullMC Logo" src="docs/img/logo.svg" width="100">
+  </picture>
 <h1>PullMC</h1>
 
-**简体中文** &nbsp;|&nbsp; [English](README_EN.md) &nbsp;|&nbsp; [日本語](README_JP.md)
+**简体中文** &nbsp;|&nbsp; [English](docs/README_EN.md) &nbsp;|&nbsp; [日本語](docs/README_JP.md)
 
 <p>轻量、纯净的 Minecraft Java版 版本下载工具</p>
 </div>
 
 > [!IMPORTANT]
-> **重要**：本项目内大量代码将使用**氛围编程 (Vibe Coding)** 方式编写，
+> **重要**：本项目内大量代码采用**氛围编程 (Vibe Coding)** 方式编写，
 > 
 > 如果您排斥此类项目，请无视此项目，谢谢。
 
-> [!Tip]
-> 此项目正在规划中，**暂未提交任何源代码及发行版**
-> 
-> 敬请期待
+> [!NOTE]
+> 此项目主要功能处于**开发中**阶段，目前仅完成基础UI框架
+> **敬请期待~**
 
 ## ⚠️ 免责声明
 

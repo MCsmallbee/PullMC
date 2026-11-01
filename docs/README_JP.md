@@ -1,20 +1,24 @@
 <div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="img/logo_dark.svg">
+    <img alt="PullMC Logo" src="img/logo.svg" width="100">
+  </picture>
 <h1>PullMC</h1>
 
-**日本語** &nbsp;|&nbsp; [简体中文](README.md) &nbsp;|&nbsp; [English](README_EN.md)
+**日本語** &nbsp;|&nbsp; [简体中文](../README.md) &nbsp;|&nbsp; [English](README_EN.md)
 
 <p>軽量・クリーンな Minecraft Java版 バージョンダウンロードツール</p>
 </div>
 
 > [!IMPORTANT]
-> **重要**：本プロジェクト内の大量のコードは **Vibe Coding（バイブコーディング）** 方式で書かれます。
-> 
+> **重要**：本プロジェクト内の大量のコードは **Vibe Coding（バイブコーディング）** 方式で書かれています。
+>
 > このようなプロジェクトを嫌う場合は、このプロジェクトを無視してください。ありがとうございます。
 
-> [!Tip]
-> このプロジェクトは現在計画中です。**ソースコードおよびリリースの提出はまだありません。**
-> 
-> お楽しみに。
+> [!NOTE]
+> 本プロジェクトの主要機能は**開発中**です。現在は基本的な UI フレームワークのみ完成しています。
+>
+> **お楽しみに！**
 
 ## ⚠️ 免責事項
 
@@ -30,7 +34,7 @@ PullMC は、Minecraft Java Edition のダウンロードと導入を行うオ�
 
 Copyright (c) 2026 MCsmallbee
 
-本プロジェクトは MIT ライセンスを採用しています。詳細は [LICENSE](LICENSE) ファイルをご覧ください。
+本プロジェクトは MIT ライセンスを採用しています。詳細は [LICENSE](../LICENSE) ファイルをご覧ください。
 
 一言で言えば：本プロジェクトのコードを自由に使用、複製、改変、配布できますが、著作権表示を保持する必要があり、作者は一切の責任を負いません。
 
