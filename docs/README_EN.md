@@ -20,6 +20,20 @@
 >
 > **Stay tuned!**
 
+## 📖 Project Overview
+
+PullMC is an open-source, unofficial Minecraft: Java Edition download and deployment tool for players who want a lighter, more transparent way to manage game versions and files.
+
+It focuses on three things:
+
+- Fetching version metadata
+- Downloading and verifying game files
+- Deploying files to a directory you choose
+
+PullMC does not provide game accounts, a launcher, or multiplayer services, and it does not host or mirror game resources. The desktop app is built with Python, PySide6, QML, and RinUI; it supports Simplified Chinese, Traditional Chinese, English, and Japanese, and follows the Windows theme.
+
+The project is currently in the `base` stage: the desktop UI, first-run onboarding, and settings are complete; the version library, downloads, verification, and deployment are still in development.
+
 ## 🗺️ Todo
 
 - [x] PySide6 + QML/RinUI desktop shell and first-run onboarding
