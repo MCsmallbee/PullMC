@@ -112,8 +112,8 @@ FluentPage {
 
         SettingCard {
             Layout.fillWidth: true
-            icon.name: "ic_fluent_window_20_regular"
-            title: I18n.t("settings.backdrop.label", "背景效果")
+            icon.name: "ic_fluent_square_hint_sparkles_20_regular"
+            title: I18n.t("settings.backdrop.label", "窗口背景效果")
             description: I18n.t("settings.backdrop.description", "选择窗口背景材质；需要系统支持。")
 
             ComboBox {

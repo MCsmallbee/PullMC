@@ -37,6 +37,12 @@ PullMC 是一个开源的 Minecraft Java 版下载与部署工具，仅用于获
 
 简而言之：你可以自由使用、复制、修改、分发本项目的代码，但需保留版权声明，且作者不承担任何责任。
 
+## 🏷️ 版本命名
+
+当前版本：`0.0.0.20261102_base(Scaffold)`
+
+版本号规则与阶段说明见 [docs/VERSIONING.md](docs/VERSIONING.md)。
+
 ## ⭐ 星标历史
 
 <a href="https://www.star-history.com/?repos=mcsmallbee%2Fpullmc&type=date&legend=bottom-right">

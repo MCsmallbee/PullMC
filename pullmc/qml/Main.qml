@@ -42,12 +42,6 @@ FluentWindow {
                 page: Qt.resolvedUrl("pages/SettingsPage.qml"),
                 icon: "ic_fluent_settings_20_regular",
                 position: Position.Bottom
-            },
-            {
-                title: I18n.t("nav.about", "关于"),
-                page: Qt.resolvedUrl("pages/AboutPage.qml"),
-                icon: "ic_fluent_info_20_regular",
-                position: Position.Bottom
             }
         ]
     }
@@ -101,6 +95,7 @@ FluentWindow {
         spacing: 12
 
         Button {
+            objectName: "backButton"
             width: 36
             height: 32
             flat: true

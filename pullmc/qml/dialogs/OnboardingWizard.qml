@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import RinUI
 import PullMC 1.0
-import "../components"
 
 Item {
     id: wizard
@@ -288,9 +287,9 @@ Item {
                                 Layout.fillWidth: true
                                 spacing: 2
 
-                                SettingsRow {
+                                SettingCard {
                                     Layout.fillWidth: true
-                                    icon: "ic_fluent_person_20_regular"
+                                    icon.name: "ic_fluent_person_20_regular"
                                     title: I18n.t("settings.displayName.label", "显示名称")
                                     description: I18n.t("settings.displayName.description", "留空时自动使用系统用户名。")
 
@@ -318,9 +317,9 @@ Item {
                                     }
                                 }
 
-                                SettingsRow {
+                                SettingCard {
                                     Layout.fillWidth: true
-                                    icon: "ic_fluent_local_language_20_regular"
+                                    icon.name: "ic_fluent_local_language_20_regular"
                                     title: I18n.t("settings.language.label", "界面语言")
                                     description: I18n.t("settings.language.description", "选择界面语言。跟随系统时使用 Windows 语言。")
 
@@ -367,9 +366,9 @@ Item {
                                 Layout.fillWidth: true
                                 spacing: 2
 
-                                SettingsRow {
+                                SettingCard {
                                     Layout.fillWidth: true
-                                    icon: "ic_fluent_dark_theme_20_regular"
+                                    icon.name: "ic_fluent_dark_theme_20_regular"
                                     title: I18n.t("settings.themeMode.label", "颜色模式")
                                     description: I18n.t("settings.themeMode.description", "选择浅色、深色，或跟随 Windows。")
 
@@ -385,9 +384,9 @@ Item {
                                     }
                                 }
 
-                                SettingsRow {
+                                SettingCard {
                                     Layout.fillWidth: true
-                                    icon: "ic_fluent_color_20_regular"
+                                    icon.name: "ic_fluent_color_20_regular"
                                     title: I18n.t("settings.accentMode.label", "主题色")
                                     description: I18n.t("settings.accentMode.description", "默认跟随 Windows 强调色，也可以手动选择。")
 
@@ -428,10 +427,10 @@ Item {
                                     visible: settings.accentMode === "custom"
                                 }
 
-                                SettingsRow {
+                                SettingCard {
                                     Layout.fillWidth: true
-                                    icon: "ic_fluent_window_20_regular"
-                                    title: I18n.t("settings.backdrop.label", "背景效果")
+                                    icon.name: "ic_fluent_square_hint_sparkles_20_regular"
+                                    title: I18n.t("settings.backdrop.label", "窗口背景效果")
                                     description: I18n.t("settings.backdrop.description", "选择窗口背景材质，需要系统支持。")
 
                                     ComboBox {
