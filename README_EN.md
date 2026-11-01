@@ -1,7 +1,7 @@
 <div align="center">
 <h1>PullMC</h1>
 
-[中文](README.md) &nbsp;|&nbsp; [日本語](README_JP.md)
+**English** &nbsp;|&nbsp; [简体中文](README.md) &nbsp;|&nbsp; [日本語](README_JP.md)
 
 <p>Lightweight, clean Minecraft Java Edition version download tool</p>
 </div>
@@ -16,7 +16,15 @@
 > 
 > Stay tuned.
 
-PullMC has no association with Mojang Studios, Microsoft, or their agents located in mainland China.
+## ⚠️ Disclaimer
+
+PullMC is an open-source Minecraft: Java Edition download and deployment tool. It only fetches version metadata, downloads game files, and verifies local files; it does not provide game accounts, servers, or multiplayer services.
+
+- This project does not host or operate any game-resource download site, nor does it mirror game files. All download requests are sent directly by your device to the source you select (Mojang's official sources, public mirrors such as BMCLAPI, or loader-official sources) and written to the local directory you choose.
+- This project is not affiliated with, endorsed by, sponsored by, or authorized by Microsoft, Mojang Studios, or their affiliates or agents.
+- Minecraft is a trademark of Mojang Studios. The project name is used only to describe compatibility and does not imply endorsement by Mojang Studios.
+- Before using this project, you must have legally obtained a Minecraft: Java Edition license through official channels and comply with the applicable end-user license agreement.
+- This project is provided "as is", without any warranty regarding the availability, stability, or security of third-party download sources. You use it at your own risk.
 
 ## ⚖️ License
 
