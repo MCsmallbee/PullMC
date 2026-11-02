@@ -36,14 +36,14 @@ The project is currently in the `base` stage: the desktop UI, first-run onboardi
 
 ## 🗺️ Todo
 
-- [x] PySide6 + QML/RinUI desktop shell and first-run onboarding
-- [x] Settings, About, localization, and version naming
-- [ ] Minecraft version metadata and library
-- [ ] Game file download, verification, and deployment
-- [ ] Loader and modpack support
+- [x] Basic window UI layout implementation
+- [x] Settings page, About page, localization and version naming
+- [ ] Minecraft version manifest fetching and version library
+- [ ] Game file downloading, verification and deployment
 - [ ] Download task queue and progress
-- [ ] Download source, mirror, and proxy settings
-- [ ] Automated Windows builds and releases
+- [ ] Download source, mirror and proxy settings
+- [ ] Mod loader and mod downloading
+- [ ] Modpack installation support
 
 ## ⚠️ Disclaimer
 
