@@ -20,7 +20,7 @@ FluentPage {
     }
 
     pageFooter: Item {
-        height: 110
+        height: 120
 
         HomeCta {
             anchors.right: parent.right
