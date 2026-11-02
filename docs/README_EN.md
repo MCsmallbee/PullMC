@@ -8,6 +8,15 @@
 **English** &nbsp;|&nbsp; [简体中文](../README.md) &nbsp;|&nbsp; [日本語](README_JP.md)
 
 <p>Lightweight, clean Minecraft Java Edition version download tool</p>
+
+[![Top Language](https://img.shields.io/github/languages/top/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
+[![Stars](https://img.shields.io/github/stars/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/stargazers)
+[![License](https://img.shields.io/github/license/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/blob/main/LICENSE)
+[![Latest Pre-Release Date](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/releases)
+[![Language Count](https://img.shields.io/github/languages/count/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
+[![Repo Size](https://img.shields.io/github/repo-size/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
+
+
 </div>
 
 > [!IMPORTANT]
