@@ -8,13 +8,14 @@
 **简体中文** &nbsp;|&nbsp; [English](docs/README_EN.md) &nbsp;|&nbsp; [日本語](docs/README_JP.md)
 
 <p>轻量、纯净的 Minecraft Java版 版本下载工具</p>
-</br>
-![GitHub top language](https://img.shields.io/github/languages/top/MCsmallbee/PullMC)
-![GitHub stars](https://img.shields.io/github/stars/MCsmallbee/PullMC?label=%E6%98%9F%E6%A0%87%E6%95%B0%E9%87%8F)
-![GitHub license](https://img.shields.io/github/license/MCsmallbee/PullMC?label=%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE)
-![GitHub release date (pre)](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC?label=%E6%9C%80%E6%96%B0%E5%8F%91%E8%A1%8C%E7%89%88%E6%97%A5%E6%9C%9F)
-![GitHub language count](https://img.shields.io/github/languages/count/MCsmallbee/PullMC?label=%E8%AF%AD%E8%A8%80%E6%95%B0%E9%87%8F)
-![GitHub repo size](https://img.shields.io/github/repo-size/MCsmallbee/PullMC?label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F)
+
+[![主要语言](https://img.shields.io/github/languages/top/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
+[![星标数量](https://img.shields.io/github/stars/MCsmallbee/PullMC?label=%E6%98%9F%E6%A0%87%E6%95%B0%E9%87%8F)](https://github.com/MCsmallbee/PullMC/stargazers)
+[![开源协议](https://img.shields.io/github/license/MCsmallbee/PullMC?label=%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE)](https://github.com/MCsmallbee/PullMC/blob/main/LICENSE)
+[![最新发行版日期](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC?label=%E6%9C%80%E6%96%B0%E5%8F%91%E8%A1%8C%E7%89%88%E6%97%A5%E6%9C%9F)](https://github.com/MCsmallbee/PullMC/releases)
+[![语言数量](https://img.shields.io/github/languages/count/MCsmallbee/PullMC?label=%E8%AF%AD%E8%A8%80%E6%95%B0%E9%87%8F)](https://github.com/MCsmallbee/PullMC)
+[![仓库大小](https://img.shields.io/github/repo-size/MCsmallbee/PullMC?label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F)](https://github.com/MCsmallbee/PullMC)
+
 </div>
 
 > [!IMPORTANT]
