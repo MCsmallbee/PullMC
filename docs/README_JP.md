@@ -8,6 +8,15 @@
 **日本語** &nbsp;|&nbsp; [简体中文](../README.md) &nbsp;|&nbsp; [English](README_EN.md)
 
 <p>軽量・クリーンな Minecraft Java版 バージョンダウンロードツール</p>
+
+[![主要言語](https://img.shields.io/github/languages/top/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
+[![スター数](https://img.shields.io/github/stars/MCsmallbee/PullMC?label=%E3%82%B9%E3%82%BF%E3%83%BC%E6%95%B0)](https://github.com/MCsmallbee/PullMC/stargazers)
+[![ライセンス](https://img.shields.io/github/license/MCsmallbee/PullMC?label=%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)](https://github.com/MCsmallbee/PullMC/blob/main/LICENSE)
+[![最新リリース日](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC?label=%E6%9C%80%E6%96%B0%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%97%A5)](https://github.com/MCsmallbee/PullMC/releases)
+[![言語数](https://img.shields.io/github/languages/count/MCsmallbee/PullMC?label=%E8%A8%80%E8%AA%9E%E6%95%B0)](https://github.com/MCsmallbee/PullMC)
+[![リポジトリサイズ](https://img.shields.io/github/repo-size/MCsmallbee/PullMC?label=%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA)](https://github.com/MCsmallbee/PullMC)
+
+
 </div>
 
 > [!IMPORTANT]
