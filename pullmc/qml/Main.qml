@@ -17,6 +17,7 @@ FluentWindow {
     defaultPage: Qt.resolvedUrl("pages/HomePage.qml")
     navigationItems: window.buildNavigation()
     navigationView.objectName: "mainNavigation"
+    navigationView.navigationBar.windowIcon: Qt.resolvedUrl("../res/logo-title.svg")
 
     function buildNavigation() {
         return [
