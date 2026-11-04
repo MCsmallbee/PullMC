@@ -12,10 +12,6 @@ FluentWindow {
     height: 620
     minimumWidth: 900
     minimumHeight: 620
-    readonly property bool showSettingsBack: navigationView.currentPage.indexOf("SettingsBasicPage") >= 0
-        || navigationView.currentPage.indexOf("SettingsAppearancePage") >= 0
-    readonly property bool isHomePage: navigationView.currentPage.indexOf("HomePage") >= 0
-    readonly property bool backVisible: onboarding.visible ? onboarding.step > 0 : !isHomePage
     titleEnabled: false
     title: I18n.t("app.name", "PullMC")
     defaultPage: Qt.resolvedUrl("pages/HomePage.qml")
@@ -55,27 +51,36 @@ FluentWindow {
             navigationView.safePush(page, true, true)
     }
 
-    function navigateBack() {
-        if (onboarding.visible) {
-            onboarding.goBack()
-            return
-        }
-        if (window.showSettingsBack) {
-            navigationView.safePush(Qt.resolvedUrl("pages/SettingsPage.qml"), false, true)
-            return
-        }
-        if (navigationView.lastPages.length > 0) {
-            navigationView.safePop()
-            return
-        }
-        if (!window.isHomePage)
-            navigationView.safePush(Qt.resolvedUrl("pages/HomePage.qml"), false, true)
-    }
-
     Connections {
         target: I18n
         function onRevisionChanged() {
             window.refreshNavigation()
+        }
+    }
+
+    function syncBackButtonOpacity() {
+        var host = window.titleBarLeadingHost
+        if (!host || host.children.length === 0)
+            return
+        var row = host.children[0]
+        for (var i = 0; i < row.children.length; i++) {
+            var item = row.children[i]
+            if (item.icon && item.icon.name === "ic_fluent_arrow_left_20_regular") {
+                item.opacity = item.enabled ? 1.0 : 0.4
+                return
+            }
+        }
+    }
+
+    Connections {
+        target: navigationView
+        function onLastPagesChanged() {
+            window.syncBackButtonOpacity()
+        }
+        function onCurrentPageChanged() {
+            if (navigationView.currentPage === window.defaultPage)
+                navigationView.lastPages = []
+            Qt.callLater(window.syncBackButtonOpacity)
         }
     }
 
@@ -108,36 +113,6 @@ FluentWindow {
         }
     }
 
-    RowLayout {
-        parent: window.titleBarLeadingHost
-        height: parent.height
-        spacing: 12
-
-        Button {
-            objectName: "backButton"
-            width: 36
-            height: 32
-            flat: true
-            icon.name: "ic_fluent_arrow_left_20_regular"
-            visible: window.backVisible
-            enabled: window.backVisible
-            onClicked: window.navigateBack()
-        }
-
-        IconWidget {
-            source: Qt.resolvedUrl("../res/logo.svg")
-            size: 16
-            enableColorOverlay: true
-            color: Utils.primaryColor
-        }
-
-        Text {
-            text: I18n.t("app.name", "PullMC")
-            typography: Typography.Caption
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
     DisclaimerDialog {
         id: disclaimer
         onExitRequested: Qt.quit()
@@ -155,7 +130,6 @@ FluentWindow {
 
     Component.onCompleted: {
         navigationItems = buildNavigation()
-        navigationView.navigationBar.titleBarEnabled = false
         if (navigationView.currentPage === "")
             navigationView.safePush(defaultPage, false, true)
         window.applyAccent()
@@ -163,6 +137,7 @@ FluentWindow {
         bridge.applyAppearance()
         if (!onboarding.visible && settings.disclaimerAcceptedVersion < appInfo.disclaimerVersion)
             Qt.callLater(function() { disclaimer.open() })
+        Qt.callLater(window.syncBackButtonOpacity)
         bridge.ping()
     }
 }
