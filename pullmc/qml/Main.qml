@@ -14,6 +14,8 @@ FluentWindow {
     minimumHeight: 620
     readonly property bool showSettingsBack: navigationView.currentPage.indexOf("SettingsBasicPage") >= 0
         || navigationView.currentPage.indexOf("SettingsAppearancePage") >= 0
+    readonly property bool isHomePage: navigationView.currentPage.indexOf("HomePage") >= 0
+    readonly property bool backVisible: onboarding.visible ? onboarding.step > 0 : !isHomePage
     titleEnabled: false
     title: I18n.t("app.name", "PullMC")
     defaultPage: Qt.resolvedUrl("pages/HomePage.qml")
@@ -51,6 +53,23 @@ FluentWindow {
         navigationItems = buildNavigation()
         if (page !== "" && navigationView.currentPage !== page)
             navigationView.safePush(page, true, true)
+    }
+
+    function navigateBack() {
+        if (onboarding.visible) {
+            onboarding.goBack()
+            return
+        }
+        if (window.showSettingsBack) {
+            navigationView.safePush(Qt.resolvedUrl("pages/SettingsPage.qml"), false, true)
+            return
+        }
+        if (navigationView.lastPages.length > 0) {
+            navigationView.safePop()
+            return
+        }
+        if (!window.isHomePage)
+            navigationView.safePush(Qt.resolvedUrl("pages/HomePage.qml"), false, true)
     }
 
     Connections {
@@ -100,14 +119,9 @@ FluentWindow {
             height: 32
             flat: true
             icon.name: "ic_fluent_arrow_left_20_regular"
-            visible: true
-            enabled: !onboarding.visible
-            onClicked: {
-                if (window.showSettingsBack)
-                    navigationView.safePush(Qt.resolvedUrl("pages/SettingsPage.qml"))
-                else
-                    navigationView.safePop()
-            }
+            visible: window.backVisible
+            enabled: window.backVisible
+            onClicked: window.navigateBack()
         }
 
         IconWidget {
