@@ -67,3 +67,30 @@ def test_invalid_values_are_rejected(settings_home) -> None:
     assert not settings.setAccentMode("rainbow")
     assert not settings.setAccentColor("red")
     assert not settings.setAccentColor("#12345")
+
+
+def test_system_accent_can_be_refreshed(settings_home, monkeypatch) -> None:
+    import pullmc.settings as settings_module
+
+    monkeypatch.setattr(settings_module, "system_accent_color", lambda: "#123456")
+    settings = AppSettings()
+    assert settings.effectiveAccentColor == "#123456"
+
+    monkeypatch.setattr(settings_module, "system_accent_color", lambda: "#654321")
+    assert settings.refreshSystemAccent() is True
+    assert settings.systemAccentColor == "#654321"
+    assert settings.effectiveAccentColor == "#654321"
+
+
+def test_system_accent_refresh_keeps_custom_color(settings_home, monkeypatch) -> None:
+    import pullmc.settings as settings_module
+
+    monkeypatch.setattr(settings_module, "system_accent_color", lambda: "#123456")
+    settings = AppSettings()
+    assert settings.setAccentMode("custom")
+    assert settings.setAccentColor("#000000")
+
+    monkeypatch.setattr(settings_module, "system_accent_color", lambda: "#654321")
+    assert settings.refreshSystemAccent() is True
+    assert settings.systemAccentColor == "#654321"
+    assert settings.effectiveAccentColor == "#000000"

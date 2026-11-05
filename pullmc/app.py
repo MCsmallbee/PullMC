@@ -87,11 +87,14 @@ def main(argv: list[str] | None = None) -> int:
     app_info = AppInfo(app)
     home = HomeState(settings, i18n, parent=app)
     bridge = AppBridge(settings, i18n, app_info, parent=app)
-    app.applicationStateChanged.connect(
-        lambda state: home.refresh()
-        if state == Qt.ApplicationState.ApplicationActive
-        else None
-    )
+
+    def on_app_state_changed(state) -> None:
+        if state != Qt.ApplicationState.ApplicationActive:
+            return
+        settings.refreshSystemAccent()
+        home.refresh()
+
+    app.applicationStateChanged.connect(on_app_state_changed)
 
     window = rinui_window_class(shared_engine=True)
     bridge.set_theme_manager(window.theme_manager)

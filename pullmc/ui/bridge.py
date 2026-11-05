@@ -16,6 +16,7 @@ class AppBridge(QObject):
         self._i18n = i18n
         self._app_info = app_info
         self._theme_manager = None
+        self._settings.effectiveAccentColorChanged.connect(self.applyAppearance)
 
     def set_theme_manager(self, manager) -> None:
         self._theme_manager = manager

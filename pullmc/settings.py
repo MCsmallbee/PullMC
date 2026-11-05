@@ -56,6 +56,7 @@ class AppSettings(QObject):
     accentModeChanged = Signal()
     accentColorChanged = Signal()
     effectiveAccentColorChanged = Signal()
+    systemAccentColorChanged = Signal()
     backdropEffectChanged = Signal()
 
     def __init__(self, parent: QObject | None = None) -> None:
@@ -314,13 +315,26 @@ class AppSettings(QObject):
             return False
         return self._set("backdropEffect", effect, self.backdropEffectChanged)
 
+    @Slot(result=bool)
+    def refreshSystemAccent(self) -> bool:
+        """Re-read the Windows accent after a theme change."""
+
+        accent = system_accent_color()
+        if not accent or accent.upper() == self._system_accent.upper():
+            return False
+        self._system_accent = accent.upper()
+        self.systemAccentColorChanged.emit()
+        if self.accentMode == "system":
+            self.effectiveAccentColorChanged.emit()
+        return True
+
     @Property(str, notify=effectiveAccentColorChanged)
     def effectiveAccentColor(self) -> str:
         if self.accentMode == "custom":
             return self.accentColor
         return self._system_accent or FALLBACK_ACCENT
 
-    @Property(str, constant=True)
+    @Property(str, notify=systemAccentColorChanged)
     def systemAccentColor(self) -> str:
         return self._system_accent
 
