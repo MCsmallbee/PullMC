@@ -11,6 +11,7 @@ FluentPage {
     title: I18n.t("settings.category.basic.title", "基础设置")
 
     readonly property var languageCodes: ["system", "zh_CN", "zh_TW", "en", "ja"]
+    readonly property var mirrorCodes: ["auto", "mojang", "bmclapi"]
 
     function syncNameMode() {
         nameMode.currentIndex = settings.useSystemDisplayName ? 0 : 1
@@ -25,10 +26,20 @@ FluentPage {
         languageBox.currentIndex = Math.max(0, page.languageCodes.indexOf(settings.language))
     }
 
+    function syncMirror() {
+        mirrorBox.currentIndex = Math.max(0, page.mirrorCodes.indexOf(settings.mirrorMode))
+    }
+
+    function syncTimeout() {
+        timeoutBox.value = settings.requestTimeout
+    }
+
     Component.onCompleted: {
         syncNameMode()
         syncDisplayName()
         syncLanguage()
+        syncMirror()
+        syncTimeout()
     }
 
     Connections {
@@ -36,6 +47,8 @@ FluentPage {
         function onUseSystemDisplayNameChanged() { page.syncNameMode() }
         function onDisplayNameChanged() { page.syncDisplayName() }
         function onLanguageChanged() { page.syncLanguage() }
+        function onMirrorModeChanged() { page.syncMirror() }
+        function onRequestTimeoutChanged() { page.syncTimeout() }
     }
 
     Connections {
@@ -43,6 +56,7 @@ FluentPage {
         function onRevisionChanged() {
             page.syncNameMode()
             page.syncLanguage()
+            page.syncMirror()
         }
     }
 
@@ -104,6 +118,49 @@ FluentPage {
                     "日本語"
                 ]
                 onActivated: bridge.setLanguage(page.languageCodes[currentIndex])
+            }
+        }
+
+        Text {
+            Layout.topMargin: 12
+            text: I18n.t("settings.versionFetch.heading", "获取 Minecraft 版本")
+            typography: Typography.BodyStrong
+        }
+
+        SettingCard {
+            Layout.fillWidth: true
+            icon.name: "ic_fluent_cloud_20_regular"
+            title: I18n.t("settings.mirror.label", "镜像源")
+            description: I18n.t("settings.mirror.description", "选择获取版本清单的源；自动会先测速再选择。")
+
+            ComboBox {
+                id: mirrorBox
+                objectName: "mirrorBox"
+                Layout.preferredWidth: 220
+                model: [
+                    I18n.t("settings.mirror.auto", "自动"),
+                    I18n.t("settings.mirror.mojang", "Mojang 官方"),
+                    I18n.t("settings.mirror.bmclapi", "BMCLAPI 镜像")
+                ]
+                onActivated: bridge.setMirrorMode(page.mirrorCodes[currentIndex])
+            }
+        }
+
+        SettingCard {
+            Layout.fillWidth: true
+            icon.name: "ic_fluent_timer_20_regular"
+            title: I18n.t("settings.requestTimeout.label", "请求超时")
+            description: I18n.t("settings.requestTimeout.description", "单次网络请求的超时时间，单位秒（5–60）。")
+
+            SpinBox {
+                id: timeoutBox
+                objectName: "requestTimeoutBox"
+                Layout.preferredWidth: 140
+                from: 5
+                to: 60
+                stepSize: 5
+                editable: true
+                onValueModified: bridge.setRequestTimeout(value)
             }
         }
     }

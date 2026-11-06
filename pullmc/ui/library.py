@@ -108,17 +108,32 @@ class _ManifestSignals(QObject):
 
 
 class _ManifestJob(QRunnable):
-    def __init__(self) -> None:
+    def __init__(self, mirror_mode: str = "auto", timeout: float = 20.0) -> None:
         super().__init__()
         self.signals = _ManifestSignals()
+        self._mirror_mode = mirror_mode
+        self._timeout = timeout
 
     def run(self) -> None:
         try:
-            client = HttpClient()
-            versions, _ = fetch_manifest(client, Mirrors())
+            client = HttpClient(timeout=self._timeout)
+            versions, _ = fetch_manifest(client, Mirrors(self._mirror_mode))
             self.signals.finished.emit(versions)
         except Exception as exc:  # The UI receives a concise, stable message.
             self.signals.failed.emit(str(exc))
+
+
+def manifest_options(settings) -> tuple[str, float]:
+    if settings is None:
+        return "auto", 20.0
+    mode = str(getattr(settings, "mirrorMode", "auto"))
+    if mode not in ("auto", "mojang", "bmclapi"):
+        mode = "auto"
+    try:
+        timeout = float(getattr(settings, "requestTimeout", 20))
+    except (TypeError, ValueError):
+        timeout = 20.0
+    return mode, timeout
 
 
 class LibraryController(QObject):
@@ -127,12 +142,16 @@ class LibraryController(QObject):
     categoryChanged = Signal()
     countChanged = Signal()
 
-    def __init__(self, parent: QObject | None = None) -> None:
+    def __init__(self, settings=None, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self.model = VersionListModel(self)
+        self._settings = settings
         self._state = "idle"
         self._error = ""
         self._busy = False
+        if settings is not None:
+            settings.mirrorModeChanged.connect(self._on_fetch_settings_changed)
+            settings.requestTimeoutChanged.connect(self._on_fetch_settings_changed)
 
     @Property(str, notify=stateChanged)
     def state(self) -> str:
@@ -160,10 +179,15 @@ class LibraryController(QObject):
         self.errorChanged.emit()
         self.stateChanged.emit()
 
-        job = _ManifestJob()
+        job = _ManifestJob(*manifest_options(self._settings))
         job.signals.finished.connect(self._on_finished)
         job.signals.failed.connect(self._on_failed)
         QThreadPool.globalInstance().start(job)
+
+    @Slot()
+    def _on_fetch_settings_changed(self) -> None:
+        if self._state in ("ready", "error"):
+            self.refresh()
 
     @Slot(str)
     def setCategory(self, category: str) -> None:

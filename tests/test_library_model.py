@@ -47,3 +47,19 @@ def test_model_ignores_invalid_category():
         assert "unknown" in str(exc)
     else:
         raise AssertionError("unknown category should be rejected")
+
+
+def test_manifest_options_follow_settings():
+    from types import SimpleNamespace
+
+    from pullmc.ui.library import manifest_options
+
+    assert manifest_options(None) == ("auto", 20.0)
+    assert manifest_options(SimpleNamespace(mirrorMode="bmclapi", requestTimeout=45)) == (
+        "bmclapi",
+        45.0,
+    )
+    assert manifest_options(SimpleNamespace(mirrorMode="invalid", requestTimeout=1)) == (
+        "auto",
+        1.0,
+    )
