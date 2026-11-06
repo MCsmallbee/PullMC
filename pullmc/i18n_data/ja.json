@@ -106,5 +106,13 @@
   "about.disclaimer.title": "免責事項",
   "about.disclaimer.description": "PullMC を使用する前に確認すべき事項を表示します。",
   "about.disclaimer.lead": "PullMC を使用する前に、以下の事項をご確認ください。",
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "library.category.release": "リリース版",
+  "library.category.snapshot": "スナップショット",
+  "library.category.old": "古代版",
+  "library.category.april_fools": "エイプリルフール版",
+  "library.loading": "バージョン一覧を取得中…",
+  "library.error": "バージョン一覧を取得できませんでした",
+  "library.retry": "再試行",
+  "library.empty": "表示できるバージョンがありません。"
 }

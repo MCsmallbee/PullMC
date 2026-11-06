@@ -16,6 +16,7 @@ from .icon import build_icon
 from .settings import AppSettings
 from .ui.bridge import AppBridge
 from .ui.home import HomeState
+from .ui.library import LibraryController
 from .ui.resources import qml_dir
 
 
@@ -87,6 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     app_info = AppInfo(app)
     home = HomeState(settings, i18n, parent=app)
     bridge = AppBridge(settings, i18n, app_info, parent=app)
+    library = LibraryController(parent=app)
 
     def on_app_state_changed(state) -> None:
         if state != Qt.ApplicationState.ApplicationActive:
@@ -106,6 +108,8 @@ def main(argv: list[str] | None = None) -> int:
     context.setContextProperty("i18nBackend", i18n)
     context.setContextProperty("home", home)
     context.setContextProperty("bridge", bridge)
+    context.setContextProperty("library", library)
+    context.setContextProperty("versionModel", library.model)
 
     window.load(str(qml_dir() / "Main.qml"))
     root_window = window.root_window

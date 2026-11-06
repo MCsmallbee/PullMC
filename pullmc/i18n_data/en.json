@@ -106,5 +106,13 @@
   "about.disclaimer.title": "Disclaimer",
   "about.disclaimer.description": "Read the notices you should know before using PullMC.",
   "about.disclaimer.lead": "Please review the following notices before using PullMC.",
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "library.category.release": "Release",
+  "library.category.snapshot": "Snapshot",
+  "library.category.old": "Ancient",
+  "library.category.april_fools": "April Fools",
+  "library.loading": "Loading versions…",
+  "library.error": "Could not load versions",
+  "library.retry": "Retry",
+  "library.empty": "No versions to show."
 }

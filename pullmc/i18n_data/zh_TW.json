@@ -106,5 +106,13 @@
   "about.disclaimer.title": "免責聲明",
   "about.disclaimer.description": "檢視使用 PullMC 前需要瞭解的聲明。",
   "about.disclaimer.lead": "使用 PullMC 前，請瞭解以下聲明。",
-  "common.ok": "確定"
+  "common.ok": "確定",
+  "library.category.release": "正式版",
+  "library.category.snapshot": "快照版",
+  "library.category.old": "遠古版",
+  "library.category.april_fools": "愚人節版",
+  "library.loading": "正在取得版本清單…",
+  "library.error": "無法取得版本清單",
+  "library.retry": "重試",
+  "library.empty": "沒有可顯示的版本。"
 }
