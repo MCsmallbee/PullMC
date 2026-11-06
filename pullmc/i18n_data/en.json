@@ -114,5 +114,18 @@
   "library.loading": "Loading versions…",
   "library.error": "Could not load versions",
   "library.retry": "Retry",
-  "library.empty": "No versions to show."
+  "library.empty": "No versions to show.",
+  "settings.versionFetch.heading": "Minecraft versions",
+  "settings.mirror.label": "Mirror",
+  "settings.mirror.description": "Choose the source for the version manifest; Auto picks the fastest.",
+  "settings.mirror.auto": "Auto",
+  "settings.mirror.mojang": "Mojang official",
+  "settings.mirror.bmclapi": "BMCLAPI mirror",
+  "settings.requestTimeout.label": "Request timeout",
+  "settings.requestTimeout.description": "Timeout for a single network request, in seconds (5–60).",
+  "settings.category.advanced.title": "Advanced settings",
+  "settings.category.advanced.description": "Debug console and logs.",
+  "settings.advanced.heading": "Debug",
+  "settings.console.label": "Debug console",
+  "settings.console.description": "Open a separate console window that streams this run's log live."
 }

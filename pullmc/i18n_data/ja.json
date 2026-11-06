@@ -114,5 +114,18 @@
   "library.loading": "バージョン一覧を取得中…",
   "library.error": "バージョン一覧を取得できませんでした",
   "library.retry": "再試行",
-  "library.empty": "表示できるバージョンがありません。"
+  "library.empty": "表示できるバージョンがありません。",
+  "settings.versionFetch.heading": "Minecraft バージョンの取得",
+  "settings.mirror.label": "ミラー",
+  "settings.mirror.description": "バージョン一覧の取得元を選択します。自動では速度を測って選びます。",
+  "settings.mirror.auto": "自動",
+  "settings.mirror.mojang": "Mojang 公式",
+  "settings.mirror.bmclapi": "BMCLAPI ミラー",
+  "settings.requestTimeout.label": "リクエストタイムアウト",
+  "settings.requestTimeout.description": "1 回の通信のタイムアウト（秒、5–60）。",
+  "settings.category.advanced.title": "詳細設定",
+  "settings.category.advanced.description": "デバッグコンソールとログ。",
+  "settings.advanced.heading": "デバッグ",
+  "settings.console.label": "デバッグコンソール",
+  "settings.console.description": "別のコンソールウィンドウを開き、今回の実行ログをリアルタイムで表示します。"
 }

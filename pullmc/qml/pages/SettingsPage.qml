@@ -58,6 +58,16 @@ FluentPage {
                 clickable: true
                 onClicked: page.Window.window.navigationView.push(Qt.resolvedUrl("SettingsAppearancePage.qml"))
             }
+
+            SettingCard {
+                objectName: "settingsAdvancedCard"
+                width: parent.width
+                icon.name: "ic_fluent_code_20_regular"
+                title: I18n.t("settings.category.advanced.title", "高级设置")
+                description: I18n.t("settings.category.advanced.description", "调试控制台与日志。")
+                clickable: true
+                onClicked: page.Window.window.navigationView.push(Qt.resolvedUrl("SettingsAdvancedPage.qml"))
+            }
         }
 
         Column {

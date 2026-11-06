@@ -94,3 +94,32 @@ def test_system_accent_refresh_keeps_custom_color(settings_home, monkeypatch) ->
     assert settings.refreshSystemAccent() is True
     assert settings.systemAccentColor == "#654321"
     assert settings.effectiveAccentColor == "#000000"
+
+
+def test_version_fetch_and_console_defaults(settings_home):
+    settings = AppSettings()
+
+    assert settings.mirrorMode == "auto"
+    assert settings.requestTimeout == 20
+    assert settings.consoleEnabled is False
+
+
+def test_version_fetch_and_console_settings_persist(settings_home):
+    settings = AppSettings()
+
+    assert settings.setMirrorMode("mojang")
+    assert settings.setRequestTimeout(45)
+    assert settings.setConsoleEnabled(True)
+
+    reloaded = AppSettings()
+    assert reloaded.mirrorMode == "mojang"
+    assert reloaded.requestTimeout == 45
+    assert reloaded.consoleEnabled is True
+
+
+def test_invalid_version_fetch_settings_are_rejected(settings_home):
+    settings = AppSettings()
+
+    assert not settings.setMirrorMode("curseforge")
+    assert not settings.setRequestTimeout(4)
+    assert not settings.setRequestTimeout(61)

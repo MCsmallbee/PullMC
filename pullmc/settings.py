@@ -37,6 +37,9 @@ _DEFAULT_DATA: dict[str, Any] = {
     "accentMode": "system",
     "accentColor": FALLBACK_ACCENT,
     "backdropEffect": "mica",
+    "mirrorMode": "auto",
+    "requestTimeout": 20,
+    "consoleEnabled": False,
 }
 
 _SUPPORTED_LANGUAGES = {"system", "zh_CN", "zh_TW", "en", "ja"}
@@ -44,6 +47,7 @@ _THEME_MODES = {"Auto", "Light", "Dark"}
 _ACCENT_MODES = {"system", "custom"}
 _BACKDROP_EFFECTS = {"mica", "tabbed", "acrylic", "none"}
 _COLOR_PATTERN = re.compile(r"^#[0-9A-Fa-f]{6}$")
+_MIRROR_MODES = {"auto", "mojang", "bmclapi"}
 
 
 class AppSettings(QObject):
@@ -58,6 +62,9 @@ class AppSettings(QObject):
     effectiveAccentColorChanged = Signal()
     systemAccentColorChanged = Signal()
     backdropEffectChanged = Signal()
+    mirrorModeChanged = Signal()
+    requestTimeoutChanged = Signal()
+    consoleEnabledChanged = Signal()
 
     def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
@@ -173,6 +180,14 @@ class AppSettings(QObject):
             self._data["accentMode"] = "system"
         if self._data.get("backdropEffect") not in _BACKDROP_EFFECTS:
             self._data["backdropEffect"] = "mica"
+        if self._data.get("mirrorMode") not in _MIRROR_MODES:
+            self._data["mirrorMode"] = "auto"
+        try:
+            timeout = int(self._data.get("requestTimeout", 20))
+        except (TypeError, ValueError):
+            timeout = 20
+        self._data["requestTimeout"] = min(60, max(5, timeout))
+        self._data["consoleEnabled"] = bool(self._data.get("consoleEnabled", False))
 
         color = str(self._data.get("accentColor") or "")
         self._data["accentColor"] = (
@@ -314,6 +329,34 @@ class AppSettings(QObject):
         if effect not in _BACKDROP_EFFECTS:
             return False
         return self._set("backdropEffect", effect, self.backdropEffectChanged)
+
+    @Property(str, notify=mirrorModeChanged)
+    def mirrorMode(self) -> str:
+        return str(self._data["mirrorMode"])
+
+    @Slot(str, result=bool)
+    def setMirrorMode(self, mode: str) -> bool:
+        if mode not in _MIRROR_MODES:
+            return False
+        return self._set("mirrorMode", mode, self.mirrorModeChanged)
+
+    @Property(int, notify=requestTimeoutChanged)
+    def requestTimeout(self) -> int:
+        return int(self._data["requestTimeout"])
+
+    @Slot(int, result=bool)
+    def setRequestTimeout(self, seconds: int) -> bool:
+        if not 5 <= int(seconds) <= 60:
+            return False
+        return self._set("requestTimeout", int(seconds), self.requestTimeoutChanged)
+
+    @Property(bool, notify=consoleEnabledChanged)
+    def consoleEnabled(self) -> bool:
+        return bool(self._data["consoleEnabled"])
+
+    @Slot(bool, result=bool)
+    def setConsoleEnabled(self, enabled: bool) -> bool:
+        return self._set("consoleEnabled", bool(enabled), self.consoleEnabledChanged)
 
     @Slot(result=bool)
     def refreshSystemAccent(self) -> bool:

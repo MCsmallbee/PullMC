@@ -114,5 +114,18 @@
   "library.loading": "正在取得版本清單…",
   "library.error": "無法取得版本清單",
   "library.retry": "重試",
-  "library.empty": "沒有可顯示的版本。"
+  "library.empty": "沒有可顯示的版本。",
+  "settings.versionFetch.heading": "取得 Minecraft 版本",
+  "settings.mirror.label": "鏡像來源",
+  "settings.mirror.description": "選擇取得版本清單的來源；自動會先測速再選擇。",
+  "settings.mirror.auto": "自動",
+  "settings.mirror.mojang": "Mojang 官方",
+  "settings.mirror.bmclapi": "BMCLAPI 鏡像",
+  "settings.requestTimeout.label": "請求逾時",
+  "settings.requestTimeout.description": "單次網路請求的逾時時間，單位秒（5–60）。",
+  "settings.category.advanced.title": "進階設定",
+  "settings.category.advanced.description": "偵錯主控台與日誌。",
+  "settings.advanced.heading": "偵錯",
+  "settings.console.label": "偵錯主控台",
+  "settings.console.description": "開啟獨立的主控台視窗，即時顯示本次執行的日誌。"
 }

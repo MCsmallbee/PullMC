@@ -16,10 +16,14 @@ class AppBridge(QObject):
         self._i18n = i18n
         self._app_info = app_info
         self._theme_manager = None
+        self._log_session = None
         self._settings.effectiveAccentColorChanged.connect(self.applyAppearance)
 
     def set_theme_manager(self, manager) -> None:
         self._theme_manager = manager
+
+    def set_log_session(self, session) -> None:
+        self._log_session = session
 
     @Slot(result=str)
     def currentAccent(self) -> str:
@@ -92,6 +96,24 @@ class AppBridge(QObject):
             except Exception:
                 pass
         return True
+
+    @Slot(str, result=bool)
+    def setMirrorMode(self, mode: str) -> bool:
+        return bool(self._settings.setMirrorMode(mode))
+
+    @Slot(int, result=bool)
+    def setRequestTimeout(self, seconds: int) -> bool:
+        return bool(self._settings.setRequestTimeout(seconds))
+
+    @Slot(bool, result=bool)
+    def setConsoleEnabled(self, enabled: bool) -> bool:
+        enabled = bool(enabled)
+        if enabled and self._log_session is not None:
+            if not self._log_session.start_console():
+                return False
+        elif not enabled and self._log_session is not None:
+            self._log_session.stop_console()
+        return bool(self._settings.setConsoleEnabled(enabled))
 
     @Slot(result=bool)
     def completeOnboarding(self) -> bool:

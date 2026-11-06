@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import os
 import sys
 import tempfile
@@ -13,6 +14,7 @@ from PySide6.QtWidgets import QApplication
 from .app_info import AppInfo
 from .i18n import I18nBackend
 from .icon import build_icon
+from .logging_setup import LogSession, setup_logging
 from .settings import AppSettings
 from .ui.bridge import AppBridge
 from .ui.home import HomeState
@@ -68,6 +70,13 @@ def _capture_window(window, path: Path) -> None:
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv if argv is None else argv)
     _configure_console()
+    log_session: LogSession | None = None
+    try:
+        log_session = setup_logging()
+        logging.getLogger("pullmc").info("PullMC 启动")
+    except OSError as exc:
+        print(f"PullMC: logging unavailable: {exc}", file=sys.stderr)
+
     screenshot_path: Path | None = None
     if "--screenshot" in argv:
         index = argv.index("--screenshot")
@@ -88,7 +97,13 @@ def main(argv: list[str] | None = None) -> int:
     app_info = AppInfo(app)
     home = HomeState(settings, i18n, parent=app)
     bridge = AppBridge(settings, i18n, app_info, parent=app)
-    library = LibraryController(parent=app)
+    library = LibraryController(settings, parent=app)
+
+    if log_session is not None:
+        bridge.set_log_session(log_session)
+        if settings.consoleEnabled:
+            log_session.start_console()
+        app.aboutToQuit.connect(log_session.close)
 
     def on_app_state_changed(state) -> None:
         if state != Qt.ApplicationState.ApplicationActive:
