@@ -40,7 +40,7 @@ def test_console_command_quotes_the_log_path(workdir):
     joined = " ".join(command)
     assert "cmd.exe" in command[0].lower()
     assert "Get-Content" in joined
-    assert "a b.log" in joined
+    assert str(log_path.resolve()) in joined
 
 
 def test_setup_logging_restores_streams(workdir):

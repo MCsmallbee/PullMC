@@ -35,9 +35,9 @@ def create_log_file(data_dir: Path | None = None) -> Path:
 def build_console_command(log_path: Path) -> list[str]:
     """Return the command for a console that tails the current log."""
 
-    escaped = str(log_path).replace("'", "''")
+    escaped = str(Path(log_path).resolve()).replace("'", "''")
     tail = (
-        "title PullMC 控制台 & powershell -NoLogo -NoProfile "
+        "title PullMC 控制台 & powershell -NoLogo -NoProfile -NoExit "
         f'-Command "Get-Content -LiteralPath \'{escaped}\' -Wait -Tail 50"'
     )
     return ["cmd.exe", "/k", tail]

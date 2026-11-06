@@ -8,7 +8,7 @@ FluentPage {
     id: page
 
     objectName: "settingsBasicPage"
-    title: I18n.t("settings.category.basic.title", "基础设置")
+    title: I18n.t("settings.category.basic.title", "常规设置")
 
     readonly property var languageCodes: ["system", "zh_CN", "zh_TW", "en", "ja"]
     readonly property var mirrorCodes: ["auto", "mojang", "bmclapi"]
@@ -142,7 +142,11 @@ FluentPage {
                     I18n.t("settings.mirror.mojang", "Mojang 官方"),
                     I18n.t("settings.mirror.bmclapi", "BMCLAPI 镜像")
                 ]
-                onActivated: bridge.setMirrorMode(page.mirrorCodes[currentIndex])
+                onActivated: {
+                    const mode = page.mirrorCodes[currentIndex]
+                    if (mode && mode !== settings.mirrorMode)
+                        bridge.setMirrorMode(mode)
+                }
             }
         }
 

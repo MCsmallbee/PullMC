@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick as Q
+import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import RinUI
 import PullMC 1.0
@@ -16,28 +17,45 @@ FluentPage {
         Layout.fillWidth: true
         spacing: 14
 
-        Segmented {
-            id: categories
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 8
 
-            Layout.alignment: Qt.AlignLeft
-            currentIndex: 0
+            Segmented {
+                id: categories
 
-            SegmentedItem {
-                text: I18n.t("library.category.release", "正式版")
-            }
-            SegmentedItem {
-                text: I18n.t("library.category.snapshot", "快照版")
-            }
-            SegmentedItem {
-                text: I18n.t("library.category.old", "远古版")
-            }
-            SegmentedItem {
-                text: I18n.t("library.category.april_fools", "愚人节版")
+                Layout.alignment: Qt.AlignVCenter
+                currentIndex: 0
+
+                SegmentedItem {
+                    text: I18n.t("library.category.release", "正式版")
+                }
+                SegmentedItem {
+                    text: I18n.t("library.category.snapshot", "快照版")
+                }
+                SegmentedItem {
+                    text: I18n.t("library.category.old", "远古版")
+                }
+                SegmentedItem {
+                    text: I18n.t("library.category.april_fools", "愚人节版")
+                }
+
+                onCurrentIndexChanged: {
+                    if (library)
+                        library.setCategory(page.categoryKeys[currentIndex])
+                }
             }
 
-            onCurrentIndexChanged: {
-                if (library)
-                    library.setCategory(page.categoryKeys[currentIndex])
+            Item {
+                Layout.fillWidth: true
+            }
+
+            ToolButton {
+                objectName: "libraryRefreshButton"
+                Layout.alignment: Qt.AlignVCenter
+                icon.name: "ic_fluent_arrow_clockwise_20_regular"
+                enabled: library.state !== "loading"
+                onClicked: library.refresh()
             }
         }
 
@@ -95,11 +113,28 @@ FluentPage {
                 anchors.fill: parent
                 visible: library.state === "ready" && library.count > 0
                 model: versionModel
-                spacing: 8
+                spacing: 4
                 clip: true
+
+                Controls.ScrollBar.vertical: Controls.ScrollBar {
+                    id: listScrollBar
+
+                    policy: Controls.ScrollBar.AsNeeded
+                    width: 8
+                    background: Item {}
+
+                    contentItem: Rectangle {
+                        implicitWidth: 6
+                        radius: 3
+                        color: Theme.currentTheme.colors.textSecondaryColor
+                        opacity: listScrollBar.pressed ? 0.85 : 0.45
+                    }
+                }
 
                 delegate: SettingCard {
                     width: versionList.width
+                    topPadding: 10
+                    bottomPadding: 10
                     title: model.versionId
                     description: model.releaseText
                     icon.name: model.iconName
@@ -109,5 +144,8 @@ FluentPage {
         }
     }
 
-    Component.onCompleted: library.refresh()
+    Component.onCompleted: {
+        if (library.state === "idle")
+            library.refresh()
+    }
 }

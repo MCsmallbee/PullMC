@@ -10,9 +10,19 @@ FluentPage {
     title: I18n.tf(home.titleId, home.titleDefault, [home.displayName])
     horizontalPadding: 48
 
+    function hidePageScrollBars() {
+        for (let i = 0; i < page.children.length; ++i) {
+            const child = page.children[i]
+            if (child && child.hasOwnProperty("orientation") && child.hasOwnProperty("size"))
+                child.visible = false
+        }
+    }
+
+    Component.onCompleted: Qt.callLater(hidePageScrollBars)
+
     Item {
         Layout.fillWidth: true
-        Layout.preferredHeight: Math.max(300, page.height - 150)
+        Layout.preferredHeight: Math.max(200, page.height - 300)
 
         HomeWidgetHost {
             anchors.fill: parent

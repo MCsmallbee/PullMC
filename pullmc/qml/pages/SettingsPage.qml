@@ -42,9 +42,9 @@ FluentPage {
             SettingCard {
                 objectName: "settingsBasicCard"
                 width: parent.width
-                icon.name: "ic_fluent_person_20_regular"
-                title: I18n.t("settings.category.basic.title", "基础设置")
-                description: I18n.t("settings.category.basic.description", "显示名称与界面语言。")
+                icon.name: "ic_fluent_options_20_regular"
+                title: I18n.t("settings.category.basic.title", "常规设置")
+                description: I18n.t("settings.category.basic.description", "显示名称、界面语言与版本获取。")
                 clickable: true
                 onClicked: page.Window.window.navigationView.push(Qt.resolvedUrl("SettingsBasicPage.qml"))
             }
