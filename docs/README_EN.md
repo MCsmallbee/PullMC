@@ -25,9 +25,7 @@
 > If you are averse to such projects, please ignore this project. Thank you.
 
 > [!NOTE]
-> The main features of this project are **under development**; currently only the basic UI framework is complete.
->
-> **Stay tuned!**
+> The version library is now available: this release can fetch and browse Minecraft: Java Edition versions (releases, snapshots, old versions, and April Fools). Downloads, verification, and deployment are still under development.
 
 ## 📖 Project Overview
 
@@ -41,13 +39,13 @@ It focuses on three things:
 
 PullMC does not provide game accounts, a launcher, or multiplayer services, and it does not host or mirror game resources. The desktop app is built with Python, PySide6, QML, and RinUI; it supports Simplified Chinese, Traditional Chinese, English, and Japanese, and follows the Windows theme.
 
-The project is currently in the `base` stage: the desktop UI, first-run onboarding, and settings are complete; the version library, downloads, verification, and deployment are still in development.
+The project is currently in the `alpha` stage: the desktop UI, first-run onboarding, settings, and version library are complete; downloads, verification, deployment, and loaders are still in development.
 
 ## 🗺️ Todo
 
 - [x] Basic window UI layout implementation
 - [x] Settings page, About page, localization and version naming
-- [ ] Minecraft version manifest fetching and version library
+- [x] Minecraft version manifest fetching and version library
 - [ ] Game file downloading, verification and deployment
 - [ ] Download task queue and progress
 - [ ] Download source, mirror and proxy settings
