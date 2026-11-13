@@ -13,6 +13,7 @@
 [![星标数量](https://img.shields.io/github/stars/MCsmallbee/PullMC?label=%E6%98%9F%E6%A0%87%E6%95%B0%E9%87%8F)](https://github.com/MCsmallbee/PullMC/stargazers)
 [![开源协议](https://img.shields.io/github/license/MCsmallbee/PullMC?label=%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE)](https://github.com/MCsmallbee/PullMC/blob/main/LICENSE)
 [![最新发行版日期](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC?label=%E6%9C%80%E6%96%B0%E5%8F%91%E8%A1%8C%E7%89%88%E6%97%A5%E6%9C%9F)](https://github.com/MCsmallbee/PullMC/releases)
+[![预览版](https://img.shields.io/github/v/release/MCsmallbee/PullMC?include_prereleases&label=%E9%A2%84%E8%A7%88%E7%89%88)](https://github.com/MCsmallbee/PullMC/releases)
 [![语言数量](https://img.shields.io/github/languages/count/MCsmallbee/PullMC?label=%E8%AF%AD%E8%A8%80%E6%95%B0%E9%87%8F)](https://github.com/MCsmallbee/PullMC)
 [![仓库大小](https://img.shields.io/github/repo-size/MCsmallbee/PullMC?label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F)](https://github.com/MCsmallbee/PullMC)
 
