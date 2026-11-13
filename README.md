@@ -75,7 +75,7 @@ PullMC 是一个开源的 Minecraft Java 版下载与部署工具，仅用于获
 
 ## 🏷️ 版本命名
 
-当前版本：`0.0.0.20261107_alpha(Biscuit)`
+当前版本：[![预览版](https://img.shields.io/github/v/release/MCsmallbee/PullMC?include_prereleases&label=%E9%A2%84%E8%A7%88%E7%89%88)](https://github.com/MCsmallbee/PullMC/releases)
 
 版本号规则与阶段说明见 [docs/VERSIONING.md](docs/VERSIONING.md)。
 
