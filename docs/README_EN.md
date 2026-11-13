@@ -13,6 +13,7 @@
 [![Stars](https://img.shields.io/github/stars/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/stargazers)
 [![License](https://img.shields.io/github/license/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/blob/main/LICENSE)
 [![Latest Pre-Release Date](https://img.shields.io/github/release-date-pre/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC/releases)
+[![Pre-Release](https://img.shields.io/github/v/release/MCsmallbee/PullMC?include_prereleases)](https://github.com/MCsmallbee/PullMC/releases)
 [![Language Count](https://img.shields.io/github/languages/count/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
 [![Repo Size](https://img.shields.io/github/repo-size/MCsmallbee/PullMC)](https://github.com/MCsmallbee/PullMC)
 
