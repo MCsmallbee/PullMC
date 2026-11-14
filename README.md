@@ -71,7 +71,40 @@ PullMC 是一个开源的 Minecraft Java 版下载与部署工具，仅用于获
 
 本项目采用 MIT 许可证，详见 [LICENSE](LICENSE) 文件。
 
+This project is licensed under the MIT License. The distributed binaries are built with Nuitka (AGPL v3). See [Nuitka-LICENSE](docs/Nuitka-LICENSE) for details.
+
+PullMC 源代码仍按 MIT 许可证发布；Nuitka 自身的 AGPL v3 条款及全文见 [docs/Nuitka-LICENSE](docs/Nuitka-LICENSE)。
+
 简而言之：你可以自由使用、复制、修改、分发本项目的代码，但需保留版权声明，且作者不承担任何责任。
+
+## 📦 依赖与许可
+
+PullMC 使用以下主要开源项目；点击名称可访问项目仓库或官网，完整许可证以各项目发布为准。
+
+| 项目 | 用途 | 许可证 |
+| --- | --- | --- |
+| [Python](https://www.python.org/) | 运行时 | [PSF](https://docs.python.org/3/license.html) |
+| [PySide6 / Qt for Python](https://pyside.org/) | GUI 与 QML 绑定 | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [Qt](https://www.qt.io/) | GUI 框架 | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [RinUI](https://github.com/RinLit-233-shiroko/Rin-UI) | Fluent 风格 QML 组件 | [MIT](https://github.com/RinLit-233-shiroko/Rin-UI) |
+| [requests](https://github.com/psf/requests) | HTTP 请求 | [Apache-2.0](https://github.com/psf/requests/blob/main/LICENSE) |
+| [urllib3](https://github.com/urllib3/urllib3) | HTTP 传输 | [MIT](https://github.com/urllib3/urllib3/blob/main/LICENSE.txt) |
+| [certifi](https://github.com/certifi/python-certifi) | CA 证书 | [MPL-2.0](https://github.com/certifi/python-certifi/blob/master/LICENSE) |
+| [charset-normalizer](https://github.com/jawah/charset_normalizer) | 字符编码检测 | [MIT](https://github.com/jawah/charset_normalizer/blob/master/LICENSE) |
+| [idna](https://github.com/kjd/idna) | 国际化域名 | [BSD-3-Clause](https://github.com/kjd/idna/blob/master/LICENSE.md) |
+| [pywin32](https://github.com/mhammond/pywin32) | Windows 集成 | [PSF](https://github.com/mhammond/pywin32/blob/main/LICENSE.txt) |
+| [Nuitka](https://github.com/Nuitka/Nuitka) | 构建工具 | [AGPL-3.0](docs/Nuitka-LICENSE) |
+| [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) | 图标 | [MIT](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
+
+## 🔨 构建
+
+Windows 10/11 x64 构建需要 Python 3.13，然后在仓库根目录运行：
+
+```bat
+build.bat
+```
+
+脚本会安装 [requirements.txt](requirements.txt) 中的依赖，并使用 Nuitka（`--standalone`、LTO、符号剥离、并行编译）生成 `dist\PullMC.dist\PullMC.exe`。PyInstaller 构建已弃用。Nuitka 4.3.5 默认剥离符号，不提供单独的 `--strip` 参数。
 
 ## 🏷️ 版本命名
 

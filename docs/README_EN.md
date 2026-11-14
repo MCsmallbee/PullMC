@@ -69,7 +69,40 @@ Copyright (c) 2026 MCsmallbee
 
 This project uses the MIT License. See the [LICENSE](../LICENSE) file for details.
 
+This project is licensed under the MIT License. The distributed binaries are built with Nuitka (AGPL v3). See [Nuitka-LICENSE](Nuitka-LICENSE) for details.
+
+PullMC source code remains under the MIT License; Nuitka's own AGPL v3 terms and full text are in [Nuitka-LICENSE](Nuitka-LICENSE).
+
 In short: you are free to use, copy, modify, and distribute the code of this project, provided that you retain the copyright notice, and the author assumes no liability.
+
+## 📦 Dependencies and licenses
+
+PullMC uses the following major open-source projects. Click a project name to visit its repository or website; the complete license terms are those published by each project.
+
+| Project | Purpose | License |
+| --- | --- | --- |
+| [Python](https://www.python.org/) | Runtime | [PSF](https://docs.python.org/3/license.html) |
+| [PySide6 / Qt for Python](https://pyside.org/) | GUI and QML bindings | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [Qt](https://www.qt.io/) | GUI framework | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [RinUI](https://github.com/RinLit-233-shiroko/Rin-UI) | Fluent-style QML components | [MIT](https://github.com/RinLit-233-shiroko/Rin-UI) |
+| [requests](https://github.com/psf/requests) | HTTP client | [Apache-2.0](https://github.com/psf/requests/blob/main/LICENSE) |
+| [urllib3](https://github.com/urllib3/urllib3) | HTTP transport | [MIT](https://github.com/urllib3/urllib3/blob/main/LICENSE.txt) |
+| [certifi](https://github.com/certifi/python-certifi) | CA certificates | [MPL-2.0](https://github.com/certifi/python-certifi/blob/master/LICENSE) |
+| [charset-normalizer](https://github.com/jawah/charset_normalizer) | Charset detection | [MIT](https://github.com/jawah/charset_normalizer/blob/master/LICENSE) |
+| [idna](https://github.com/kjd/idna) | Internationalized domain names | [BSD-3-Clause](https://github.com/kjd/idna/blob/master/LICENSE.md) |
+| [pywin32](https://github.com/mhammond/pywin32) | Windows integration | [PSF](https://github.com/mhammond/pywin32/blob/main/LICENSE.txt) |
+| [Nuitka](https://github.com/Nuitka/Nuitka) | Build tool | [AGPL-3.0](Nuitka-LICENSE) |
+| [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) | Icons | [MIT](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
+
+## 🔨 Build
+
+Building for Windows 10/11 x64 requires Python 3.13. From the repository root, run:
+
+```bat
+build.bat
+```
+
+The script installs the dependencies in [requirements.txt](../requirements.txt) and builds `dist\PullMC.dist\PullMC.exe` with Nuitka (`--standalone`, LTO, symbol stripping, and parallel compilation). The PyInstaller build is deprecated. Nuitka 4.3.5 strips symbols by default and does not offer a separate `--strip` option.
 
 ## ⭐ Star History
 

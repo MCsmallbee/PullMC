@@ -69,7 +69,40 @@ Copyright (c) 2026 MCsmallbee
 
 本プロジェクトは MIT ライセンスを採用しています。詳細は [LICENSE](../LICENSE) ファイルをご覧ください。
 
+This project is licensed under the MIT License. The distributed binaries are built with Nuitka (AGPL v3). See [Nuitka-LICENSE](Nuitka-LICENSE) for details.
+
+PullMC のソースコードは MIT ライセンスのままです。Nuitka 自体の AGPL v3 条項と全文は [Nuitka-LICENSE](Nuitka-LICENSE) にあります。
+
 一言で言えば：本プロジェクトのコードを自由に使用、複製、改変、配布できますが、著作権表示を保持する必要があり、作者は一切の責任を負いません。
+
+## 📦 依存関係とライセンス
+
+PullMC は次の主要なオープンソースプロジェクトを使用しています。プロジェクト名をクリックするとリポジトリまたは公式サイトを開きます。完全なライセンス条件は各プロジェクトの公開内容に従います。
+
+| プロジェクト | 用途 | ライセンス |
+| --- | --- | --- |
+| [Python](https://www.python.org/) | ランタイム | [PSF](https://docs.python.org/3/license.html) |
+| [PySide6 / Qt for Python](https://pyside.org/) | GUI と QML バインディング | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [Qt](https://www.qt.io/) | GUI フレームワーク | [LGPL-3.0 / GPL-3.0](https://www.qt.io/licensing/open-source-lgpl-obligations) |
+| [RinUI](https://github.com/RinLit-233-shiroko/Rin-UI) | Fluent 風 QML コンポーネント | [MIT](https://github.com/RinLit-233-shiroko/Rin-UI) |
+| [requests](https://github.com/psf/requests) | HTTP クライアント | [Apache-2.0](https://github.com/psf/requests/blob/main/LICENSE) |
+| [urllib3](https://github.com/urllib3/urllib3) | HTTP トランスポート | [MIT](https://github.com/urllib3/urllib3/blob/main/LICENSE.txt) |
+| [certifi](https://github.com/certifi/python-certifi) | CA 証明書 | [MPL-2.0](https://github.com/certifi/python-certifi/blob/master/LICENSE) |
+| [charset-normalizer](https://github.com/jawah/charset_normalizer) | 文字コード検出 | [MIT](https://github.com/jawah/charset_normalizer/blob/master/LICENSE) |
+| [idna](https://github.com/kjd/idna) | 国際化ドメイン名 | [BSD-3-Clause](https://github.com/kjd/idna/blob/master/LICENSE.md) |
+| [pywin32](https://github.com/mhammond/pywin32) | Windows 統合 | [PSF](https://github.com/mhammond/pywin32/blob/main/LICENSE.txt) |
+| [Nuitka](https://github.com/Nuitka/Nuitka) | ビルドツール | [AGPL-3.0](Nuitka-LICENSE) |
+| [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) | アイコン | [MIT](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
+
+## 🔨 ビルド
+
+Windows 10/11 x64 のビルドには Python 3.13 が必要です。リポジトリのルートで次を実行します。
+
+```bat
+build.bat
+```
+
+スクリプトは [requirements.txt](../requirements.txt) の依存関係をインストールし、Nuitka（`--standalone`、LTO、シンボル除去、並列コンパイル）で `dist\PullMC.dist\PullMC.exe` を生成します。PyInstaller ビルドは廃止されました。Nuitka 4.3.5 はデフォルトでシンボルを除去し、個別の `--strip` オプションは提供しません。
 
 ## ⭐ スター履歴
 
